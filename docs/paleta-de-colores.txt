@@ -1,0 +1,15 @@
+Paleta de colores del proyecto
+
+https://colorhunt.co/palette/ddffbbc7e9b0b3c99ca4bc92
+
+#DDFFBB
+
+#C7E9B0
+
+#B3C99C
+
+#A4BC92
+
+#fefcf9
+
+#545454
