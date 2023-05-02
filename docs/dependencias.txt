@@ -1,0 +1,16 @@
+FRONT
+-React
+-React router-dom
+-React Bootstrap
+-Sweet alert2
+
+BACKEND
+-Node
+-Express/middleware
+-Cors/middleware
+-Postgres
+-JWT
+-Jest
+-Supertest
+
+
