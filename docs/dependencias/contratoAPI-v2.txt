@@ -161,3 +161,4 @@ Response:
   "precio": "number",
   "imagen": "string"
 }
+
