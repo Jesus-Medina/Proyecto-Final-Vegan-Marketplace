@@ -1,0 +1,163 @@
+Tabla de usuarios
+Iniciar sesión
+
+POST /login
+
+Body:
+{
+  "email": "string",
+  "contraseña": "string"
+}
+
+Response:
+{
+  "token": "string"
+}
+
+Obtener información del usuario actual
+
+GET /usuario
+
+Headers:
+Authorization: Bearer {token}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "apellido": "string",
+  "email": "string"
+}
+
+Cerrar sesión
+
+POST /logout
+
+Headers:
+Authorization: Bearer {token}
+
+
+Tabla de productos
+Obtener todos los productos
+
+GET /productos
+
+Response:
+[
+  {
+    "id": "string",
+    "nombre": "string",
+    "descripcion": "string",
+    "precio": "number",
+    "imagen": "string"
+  },
+  ...
+]
+
+Obtener un producto por su ID
+
+GET /productos/{id}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "descripcion": "string",
+  "precio": "number",
+  "imagen": "string"
+}
+
+Tabla de favoritos
+Obtener todos los favoritos del usuario actual
+
+GET /favoritos
+
+Headers:
+Authorization: Bearer {token}
+
+Response:
+[
+  {
+    "id": "string",
+    "nombre": "string",
+    "descripcion": "string",
+    "precio": "number",
+    "imagen": "string"
+  },
+  ...
+]
+
+Añadir un producto a los favoritos del usuario actual
+
+POST /favoritos
+
+Headers:
+Authorization: Bearer {token}
+
+Body:
+{
+  "producto_id": "string"
+}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "descripcion": "string",
+  "precio": "number",
+  "imagen": "string"
+}
+
+Eliminar un producto de los favoritos del usuario actual
+
+DELETE /favoritos/{producto_id}
+
+Headers:
+Authorization: Bearer {token}
+
+
+Tabla de usuarios
+Crear un nuevo usuario
+
+POST /usuarios
+
+Body:
+{
+  "nombre": "string",
+  "apellido": "string",
+  "email": "string",
+  "contraseña": "string"
+}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "apellido": "string",
+  "email": "string"
+}
+
+Tabla de productos
+Crear un nuevo producto
+
+POST /productos
+
+Headers:
+Authorization: Bearer {token}
+
+Body:
+{
+  "nombre": "string",
+  "descripcion": "string",
+  "precio": "number",
+  "imagen": "string"
+}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "descripcion": "string",
+  "precio": "number",
+  "imagen": "string"
+}
