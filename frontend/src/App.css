@@ -1,0 +1,115 @@
+body {
+  background-color: #C7E9B0;
+  font-family: 'Glacial Indifference';
+}
+
+.lista-productos {
+  justify-content: center;
+  margin: 2em auto;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: auto;
+}
+
+@media (min-width: 768px) {
+  .lista-productos {
+    margin: 2em auto;
+    display: grid;
+    gap: 2em;
+    grid-template-columns: auto auto  ;
+  }
+}
+
+@media (min-width: 992px) {
+  .lista-productos {
+    margin: 2em auto;
+    display: grid;
+    gap: 2em;
+    grid-template-columns: auto auto auto ;
+  }
+
+  .detalle {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .detalle-img {
+    width: 40%;
+  }
+}
+
+@media (min-width:1400px) {
+  .lista-productos {
+    margin: 2em auto;
+    display: grid;
+    gap: 2em;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+
+.price {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 500;
+  margin:0;
+  display:inline;
+}
+.price::before {
+  content:"$";
+}
+
+.actions {
+  justify-content: center;
+  margin: 0 auto 1em;
+  display: grid;
+  gap: 2em;
+  grid-template-columns: auto auto;
+}
+
+.card {
+  text-align: center;
+  background-color: #fff;
+  border: 0.5em solid rgb(84, 84, 84);
+  border-radius: 25px;
+  padding: 1em 1em 0 1em;
+}
+.card img {
+  max-width: 80%;
+  border: 0.5em solid rgb(245,242,238);
+  border-radius: 10px;
+  margin: 0 auto 1em;
+}
+
+
+.product-card-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.card-img {
+  height: 14em;
+  width: 100%;
+  background-position: center;
+}
+.card-img:hover, .card-title:hover, .price:hover {
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 100%;
+  height:1.8em;
+  width: 1.8em;
+  font-size: 2em;
+}
+
+button svg {
+  margin-left: -3px;
+}
+
+.btn-success, .btn-success:hover {
+  background-color: #A4BC92;
+  border-color: #A4BC92;
+  color: rgb(84,84,84)
+}
