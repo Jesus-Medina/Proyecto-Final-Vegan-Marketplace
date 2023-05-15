@@ -122,3 +122,44 @@ button svg {
   border-color: #A4BC92;
   color: rgb(84,84,84)
 }
+
+
+
+.hero {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fb/Broccoli_bunches.jpg"); */
+  background-image: url('./assets/imgs/hero_img.jpg');
+}
+
+.home-title {
+  background-color: #a4bc929f;
+  padding: 2rem;
+  border-radius: 1rem;
+  color: #1e2519db;
+}
+
+#navbar-vegano {
+  background-color: #B3c99c !important;
+  text-align: center;
+}
+
+#navbar-vegano a{
+  color: #3c4833db;
+  margin-right: 1rem;
+  text-decoration: none;
+  text-align: center;
+} 
+
+.footer  {
+  background-color: #B3c99c;
+}
+
+.footer a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #3c4833db;
+}
