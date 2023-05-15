@@ -11,7 +11,7 @@ const Producto = () => {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    const producto = productos.filter((item) => item.id == id);
+    const producto = productos.filter((item) => item.id === id);
     if (producto.length > 0) {
       setDetails(producto[0]);
       setLoading(false);
