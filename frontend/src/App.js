@@ -11,15 +11,15 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-    <BasicExample/>
+      <BasicExample />
       <Routes>
-        {/* <Route path="/" element={<ListaProductos />} /> */}
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<ListaProductos />} />
         <Route path="/productos/:id" element={<Producto />} />
 
-        {/* <Route path="*" element={<ListaProductos />} /> */}
+        <Route path="*" element={<Home />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 }
