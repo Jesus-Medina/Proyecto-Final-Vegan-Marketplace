@@ -3,8 +3,10 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AgregarProducto = () => {
+  const navigate = useNavigate();
   const [producto, setProducto] = useState({
     nombre: "",
     descripcion: "",
@@ -18,7 +20,11 @@ const AgregarProducto = () => {
   const handleChange = (event) => {
     const valor = event.target.value;
     setProducto({ ...producto, [event.target.name]: valor });
-    console.log(producto);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    navigate("/");
   };
 
   return (
@@ -80,8 +86,8 @@ const AgregarProducto = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Submit
+        <Button variant="warning" type="submit" onClick={handleSubmit}>
+          Enviar
         </Button>
       </Form>
     </Container>
@@ -89,15 +95,3 @@ const AgregarProducto = () => {
 };
 
 export default AgregarProducto;
-
-// {
-//     id: 65,
-//     id_vendedor: 3,
-//     nombre: "tostadas",
-//     descripcion: "descripcion podutto",
-//     url_imagen:
-//       "https://cdn.shopify.com/s/files/1/1055/2210/articles/bright_colored_foods-808927.jpg?v=1674614608",
-//     precio: 9990,
-//     stock: 10,
-//     categoria: "categoria prod 2",
-//   },
