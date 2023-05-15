@@ -16,7 +16,7 @@ function DetalleProducto({ producto }) {
           <p className="price">{producto.precio.toLocaleString("de")}</p>
           <div className="actions">
             <Button
-              variant="warning"
+              variant="success"
               className="agregar"
               //  onClick={handleAddToCart}
             >
