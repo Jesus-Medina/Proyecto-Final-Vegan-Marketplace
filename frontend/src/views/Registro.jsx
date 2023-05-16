@@ -1,18 +1,18 @@
 import { useState } from "react";
 import TitleComponent from "../components/login-register-components/TitleComponent";
-import InputComponent from "../components/login-register-components/InputComponent";
-import ButtonComponent from "../components/login-register-components/ButtonComponent";
+import InputComponent from "../components/register-components/InputComponent";
+import ButtonComponent from "../components/register-components/ButtonComponent";
 import LinksComponent from "../components/login-register-components/LinksComponent";
-import "../styles/loginContainer.css"
+import "../styles/registerCard.css"
 
-function Login() {
+function Register() {
 
     const [user, setUser] = useState("")
     const [userPassword, setUserPassword] = useState("")
 
     return (
-        <div className="login">
-            <div className="login-container p-4 rounded">
+        <div className="register">
+            <div className="register-container p-4 rounded">
                 <TitleComponent />
                 <InputComponent
                     setUser={setUser}
@@ -25,4 +25,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;

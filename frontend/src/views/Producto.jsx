@@ -19,9 +19,9 @@ const Producto = () => {
     // else {
     //   navigate("/");
     // }
+    console.log(producto)
   }, [id]);
-  console.log({ id });
-  console.log({ productos });
+  console.log(details)
 
   return (
     <Container>

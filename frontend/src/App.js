@@ -10,6 +10,7 @@ import Home from "./views/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import AgregarProducto from "./views/AgregarProducto";
+import Register from "./views/Registro";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/productos" element={<ListaProductos />} />
         <Route path="/productos/:id" element={<Producto />} />
         <Route path="/login" element={<Login />}/>
+        <Route path="/registro" element={<Register />}/>
         <Route path="/nuevo" element={<AgregarProducto />} />
 
         <Route path="*" element={<Home />} />
