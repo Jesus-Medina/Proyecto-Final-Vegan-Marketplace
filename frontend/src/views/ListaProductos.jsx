@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import ProductoCard from "../components/ProductoCard";
+import ProductoCard from "../components/producto-components/ProductoCard";
 import productos from "../productos";
 
 const ListaProductos = () => {

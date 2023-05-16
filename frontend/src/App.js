@@ -5,10 +5,10 @@ import "./App.css";
 import ListaProductos from "./views/ListaProductos";
 import Producto from "./views/Producto";
 import Login from "./views/Login";
-import Navigation from "./components/NavBar";
+import Navigation from "./components/navbar-components/NavBar";
 import Home from "./views/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
+import Footer from "./components/footer-components/Footer";
 import AgregarProducto from "./views/AgregarProducto";
 import Register from "./views/Registro";
 

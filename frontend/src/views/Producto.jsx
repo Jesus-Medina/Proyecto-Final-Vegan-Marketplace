@@ -1,7 +1,7 @@
 import { Container, Image, Spinner } from "react-bootstrap";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import DetalleProducto from "../components/DetalleProducto";
+import DetalleProducto from "../components/detalleProductos-components/DetalleProducto";
 import productos from "../productos";
 
 const Producto = () => {
@@ -11,7 +11,7 @@ const Producto = () => {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    const producto = productos.filter((item) => item.id === id);
+    const producto = productos.filter((item) => item.id == id);
     if (producto.length > 0) {
       setDetails(producto[0]);
       setLoading(false);

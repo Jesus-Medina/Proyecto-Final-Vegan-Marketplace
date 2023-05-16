@@ -31,7 +31,7 @@ function Navigation() {
 
                         <NavLink className="nav_link" to='/nosotros'>Nosotros</NavLink>
 
-                        <NavLink className="nav_link" to='/nosotros'>Productos</NavLink>
+                        <NavLink className="nav_link" to='/productos'>Productos</NavLink>
                        
                        
                         {/* <NavDropdown title="Categorías" id="basic-nav-dropdown">
