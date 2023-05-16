@@ -12,7 +12,6 @@ function Login() {
 
     return (
         <div className="login">
-            
             <div className="login-container p-4 rounded">
                 <TitleComponent />
                 <InputComponent

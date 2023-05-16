@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 
-function BasicExample() {
+function Navigation() {
     return (
         <Navbar bg="dark" expand="lg" id="navbar-vegano">
             <Container>
@@ -50,4 +50,4 @@ function BasicExample() {
     );
 }
 
-export default BasicExample;
+export default Navigation;
