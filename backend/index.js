@@ -27,7 +27,6 @@ app.post("/usuario", async (req, res) => {
     const result = await nuevoUsuario(nombre, email, password);
     res.status(200).send(`Usuario ${email} registrado`);
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error);
   }
 });
@@ -40,7 +39,6 @@ app.post("/login", async (req, res) => {
     const token = jwt.sign({ email: email }, "az_AZ");
     res.status(200).send(token);
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message);
   }
 });
@@ -49,6 +47,10 @@ app.post("/login", async (req, res) => {
 app.get("/usuario", async (req, res) => {
   try {
     const auth = req.header("Authorization");
+    if (!auth) {
+      res.status(401).send("Credenciales inválidas");
+      return;
+    }
     const token = auth.split("Bearer ")[1];
     jwt.verify(token, "az_AZ");
     const { email } = jwt.decode(token);
@@ -64,7 +66,7 @@ app.get("/usuario", async (req, res) => {
 });
 
 // Nuevo producto
-app.post("/nuevoProducto", async (req, res) => {
+app.post("/productos", async (req, res) => {
   try {
     const auth = req.header("Authorization");
     const token = auth.split("Bearer ")[1];
@@ -85,7 +87,6 @@ app.post("/nuevoProducto", async (req, res) => {
     );
     res.status(200).send(`Producto ${nombre} creado`);
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });
@@ -96,7 +97,6 @@ app.get("/productos", async (req, res) => {
     const productos = await getProductos();
     res.status(200).send(productos);
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });
@@ -108,25 +108,23 @@ app.get("/productos/:id", async (req, res) => {
     const producto = await getProducto(id);
     res.status(200).send(producto);
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });
 
 // Agregar producto a favoritos
-app.post("/agregarFavorito/:id", async (req, res) => {
+app.post("/favoritos", async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id_producto } = req.body;
     const auth = req.header("Authorization");
     const token = auth.split("Bearer ")[1];
     jwt.verify(token, "az_AZ");
     const { email } = jwt.decode(token);
     const usuario = await getUser(email);
     const id_usuario = usuario.id;
-    const result = await agregarFavorito(id_usuario, id);
+    const result = await agregarFavorito(id_usuario, id_producto);
     res.status(200).send("Producto agregado a favoritos");
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });
@@ -143,13 +141,12 @@ app.get("/favoritos", async (req, res) => {
     const favoritos = await getFavoritos(id_usuario);
     res.status(200).send(favoritos);
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });
 
 // Eliminar de favoritos
-app.delete("/eliminarFavorito/:id", async (req, res) => {
+app.delete("/favoritos/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const auth = req.header("Authorization");
@@ -161,7 +158,6 @@ app.delete("/eliminarFavorito/:id", async (req, res) => {
     const result = await eliminarFavorito(id_usuario, id);
     res.status(200).send("Producto eliminado de favoritos");
   } catch (error) {
-    console.log(error);
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });

@@ -25,7 +25,12 @@ const verificarCredenciales = async (email, password) => {
     rows: [usuario],
     rowCount,
   } = await pool.query(consulta, values);
-
+  if (!usuario) {
+    throw {
+      code: 401,
+      message: "Credenciales inválidas",
+    };
+  }
   const { password_hash: password_hash } = usuario;
   const passwordEsCorrecta = bcrypt.compareSync(password, password_hash);
 
@@ -38,7 +43,7 @@ const verificarCredenciales = async (email, password) => {
 };
 
 const getUser = async (email) => {
-  const consulta = "SELECT * FROM usuario WHERE email = $1";
+  const consulta = "SELECT id, nombre, email FROM usuario WHERE email = $1";
   const values = [email];
   const {
     rowCount,
@@ -76,7 +81,6 @@ const nuevoProducto = async (
 const getProductos = async () => {
   const query = "SELECT * FROM producto";
   const { rowCount, rows: productos } = await pool.query(query);
-  console.log(productos);
   return productos;
 };
 
