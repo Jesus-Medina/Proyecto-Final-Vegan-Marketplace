@@ -161,3 +161,21 @@ app.delete("/favoritos/:id", async (req, res) => {
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
 });
+
+app.get("*", (req, res) => {
+  res.status(404).send("Esta ruta no existe");
+});
+
+app.post("*", (req, res) => {
+  res.status(404).send("Esta ruta no existe");
+});
+
+app.delete("*", (req, res) => {
+  res.status(404).send("Esta ruta no existe");
+});
+
+app.put("*", (req, res) => {
+  res.status(404).send("Esta ruta no existe");
+});
+
+module.exports = app;

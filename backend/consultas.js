@@ -10,6 +10,16 @@ const pool = new Pool({
 });
 
 const nuevoUsuario = async (nombre, email, password) => {
+  const queryRevision = "SELECT * FROM usuario WHERE email = $1";
+  const {
+    rows: [usuario],
+  } = await pool.query(queryRevision, [email]);
+  if (usuario) {
+    throw {
+      code: 401,
+      message: "Ya existe un usuario registrado con ese email",
+    };
+  }
   const passwordEncriptada = bcrypt.hashSync(password);
   const query = "INSERT INTO usuario VALUES (DEFAULT, $1, $2, $3)";
   const values = [nombre, email, passwordEncriptada];
