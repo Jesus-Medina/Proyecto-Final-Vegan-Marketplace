@@ -1,0 +1,142 @@
+Tabla de usuarios
+Iniciar sesión
+
+POST /login
+
+Body:
+{
+  "email": "string",
+  "password": "string"
+}
+
+Response:
+{
+  "token": "string"
+}
+
+Obtener información del usuario actual
+
+GET /usuario
+
+Headers:
+Authorization: Bearer {token}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "email": "string"
+}
+
+
+Tabla de productos
+Obtener todos los productos
+
+GET /productos
+
+Response:
+[
+  {
+    "id": "string",
+    "nombre": "string",
+    "descripcion": "string",
+    "url_imagen": "string"
+    "precio": "number",
+    "stock": "number",
+    "categoia": "string"
+  },
+  ...
+]
+
+Obtener un producto por su ID
+
+GET /productos/{id}
+
+Response:
+{
+  "id": "string",
+  "nombre": "string",
+  "descripcion": "string",
+  "url_imagen": "string"
+  "precio": "number",
+  "stock": "number",
+  "categoia": "string"
+}
+
+Tabla de favoritos
+Obtener todos los favoritos del usuario actual
+
+GET /favoritos
+
+Headers:
+Authorization: Bearer {token}
+
+Response:
+[
+  {
+    "id": "string",
+    "nombre": "string",
+    "descripcion": "string",
+    "url_imagen": "string"
+    "precio": "number",
+    "stock": "number",
+    "categoia": "string"
+  },
+  ...
+]
+
+Añadir un producto a los favoritos del usuario actual
+
+POST /favoritos
+
+Headers:
+Authorization: Bearer {token}
+
+Body:
+{
+  "id_producto": "string"
+}
+
+
+
+Eliminar un producto de los favoritos del usuario actual
+
+DELETE /favoritos/{id_producto}
+
+Headers:
+Authorization: Bearer {token}
+
+
+Tabla de usuarios
+Crear un nuevo usuario
+
+POST /usuario
+
+Body:
+{
+  "nombre": "string",
+  "email": "string",
+  "password": "string"
+}
+
+
+Tabla de productos
+Crear un nuevo producto
+
+POST /productos
+
+Headers:
+Authorization: Bearer {token}
+
+Body:
+{
+  "id": "string",
+  "nombre": "string",
+  "descripcion": "string",
+  "url_imagen": "string"
+  "precio": "number",
+  "stock": "number",
+  "categoia": "string"
+}
+
+
