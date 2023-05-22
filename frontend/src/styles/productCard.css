@@ -1,6 +1,7 @@
 .card-container {
     text-align: start;
     width: 16rem;
+    border-radius: 0;
 }
 
 .producto-nombre {

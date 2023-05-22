@@ -55,7 +55,7 @@ const productos = [
     categoria: "categoria prod 1",
   },
   {
-    id: 4,
+    id: 5,
     id_vendedor: 3,
     nombre: "hummus",
     descripcion: "descripcion podutto",
@@ -66,7 +66,7 @@ const productos = [
     categoria: "categoria prod 1",
   },
   {
-    id: 4,
+    id: 6,
     id_vendedor: 3,
     nombre: "hummus",
     descripcion: "descripcion podutto",
@@ -77,7 +77,7 @@ const productos = [
     categoria: "categoria prod 1",
   },
   {
-    id: 4,
+    id: 7,
     id_vendedor: 3,
     nombre: "hummus",
     descripcion: "descripcion podutto",

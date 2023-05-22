@@ -12,7 +12,7 @@ function Login() {
 
     return (
         <div className="login">
-            <div className="login-container p-4 rounded">
+            <div className="login-container p-4">
                 <TitleComponent />
                 <InputComponent
                     setUser={setUser}

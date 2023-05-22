@@ -12,7 +12,7 @@ function Register() {
 
     return (
         <div className="register">
-            <div className="register-container p-4 rounded">
+            <div className="register-container p-4">
                 <TitleComponent />
                 <InputComponent
                     setUser={setUser}
