@@ -29,7 +29,7 @@ const AgregarProducto = () => {
 
   return (
     <Container>
-      <Form>
+      <Form style={{ color: "#fff" }}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
