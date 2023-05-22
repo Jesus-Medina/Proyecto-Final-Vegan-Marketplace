@@ -1,7 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-
+import Context from "./Context";
+import { useState } from "react";
 import ListaProductos from "./views/ListaProductos";
 import Producto from "./views/Producto";
 import Login from "./views/Login";
@@ -14,22 +15,27 @@ import Register from "./views/Registro";
 import Contacto from "./views/Contacto";
 
 function App() {
+  const [usuario, setUsuario] = useState(null);
   return (
-    <BrowserRouter>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<ListaProductos />} />
-        <Route path="/productos/:id" element={<Producto />} />
-        <Route path="/login" element={<Login />}/>
-        <Route path="/registro" element={<Register />}/>
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/nuevo" element={<AgregarProducto />} />
+    <Context.Provider value={{ usuario, setUsuario }}>
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productos" element={<ListaProductos />} />
+          <Route path="/productos/:id" element={<Producto />} />
+          <Route path="/favoritos/:id_usuario" element={<ListaProductos />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Register />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/nuevo" element={<AgregarProducto />} />
+          {/* <Route path="/usuario/:id_usuario" element={< />} /> */}
 
-        <Route path="*" element={<Home />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+          <Route path="*" element={<Home />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </Context.Provider>
   );
 }
 
