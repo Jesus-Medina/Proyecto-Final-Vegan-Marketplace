@@ -17,7 +17,7 @@ function ButtonComponent({ buttonState }) {
 
     return (
         <React.Fragment>
-            <button onClick={successMesagge} className="px-5 py-2 mb-2 mt-3 rounded login-button">Registro</button>
+            <button onClick={successMesagge} className="px-5 py-2 mb-2 mt-3 rounded login-button">Registrarme</button>
         </React.Fragment>
     )
 }
