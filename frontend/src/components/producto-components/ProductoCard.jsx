@@ -8,7 +8,7 @@ function ProductoCard({ producto }) {
   const navigate = useNavigate();
 
   return (
-    <Card style={{ width: "20rem" }}>
+    <Card className="card-container" style={{ width: "16rem" }}>
       <div
         className="card-img"
         style={{
@@ -18,19 +18,18 @@ function ProductoCard({ producto }) {
         onClick={() => navigate(`/productos/${producto.id}`)}
       ></div>
       <div className="product-card-info">
-        <Card.Body>
-          <Card.Title onClick={() => navigate(`/productos/${producto.id}`)}>
+        <Card.Body className="card-body-container">
+          <Card.Title className="producto-nombre" onClick={() => navigate(`/productos/${producto.id}`)}>
             {producto.nombre}
           </Card.Title>
           <p className="price">{producto.precio.toLocaleString("de")}</p>
         </Card.Body>
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="agregar-carrito-container">
           <Button
-            variant="success"
-            className="agregar"
+            className="agregar-button"
             //  onClick={handleAddToCart}
           >
-            <FontAwesomeIcon icon={faCartPlus} />
+            <FontAwesomeIcon className="carrito-icon" icon={faCartPlus} />
           </Button>
         </div>
       </div>

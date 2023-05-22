@@ -1,39 +1,32 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 
 function Navigation() {
     return (
-        <Navbar bg="dark" expand="lg" id="navbar-vegano">
+        <Navbar expand="lg" id="navbar-vegano" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand href="/">
                     <img
                         alt="logo"
-                        src="/bro.png"
+                        src="https://img.icons8.com/color/48/gailan.png"
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
                     />{""}
-                    TheVeganMarket</Navbar.Brand>
+                    TheVeganMarket
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto ml-4">
+                    <Nav className="ms-auto navbar-link-container">
+                        <NavLink className="nav_link " to='/productos'>Productos <span></span></NavLink>
+                        <NavLink className="nav_link" to='/nosotros'>Nosotros</NavLink>
+                        <NavLink className="nav_link" to='/contacto'>Contacto</NavLink>
+                        <NavLink className="nav_link" to='/perfil'>Mi Perfil</NavLink>
                         <NavLink className="nav_link" to='/login'>Login</NavLink>
-
                         <NavLink className="nav_link" to='/registro'>Registrarse</NavLink>
 
-                        <NavLink className="nav_link" to='/perfil'>Mi Perfil</NavLink>
-
-                        <NavLink className="nav_link" to='/contacto'>Contacto</NavLink>
-
-
-                        <NavLink className="nav_link" to='/nosotros'>Nosotros</NavLink>
-
-                        <NavLink className="nav_link" to='/productos'>Productos</NavLink>
-                       
-                       
                         {/* <NavDropdown title="Categorías" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">No carne</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">

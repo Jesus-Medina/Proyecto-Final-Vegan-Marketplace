@@ -29,3 +29,8 @@
     border: .1rem solid #426f1eb9;
     font-family: 'Glacial Indifference';
 }
+
+.login-button:hover {
+    color: white;
+    background-color: #457a19;
+}

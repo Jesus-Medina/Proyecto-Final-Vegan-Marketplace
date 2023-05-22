@@ -14,7 +14,13 @@ function DetalleProducto({ producto }) {
         <div className="product-detalle-info">
           <Card.Title>{producto.nombre}</Card.Title>
           <p className="price">{producto.precio.toLocaleString("de")}</p>
-          <div className="actions">
+        </div>
+        <div className="product-descripcion">
+          <p>Descripción</p>
+          <hr />
+          <p>{producto.descripcion}</p>
+        </div>
+        <div className="actions">
             <Button
               variant="success"
               className="agregar"
@@ -23,12 +29,6 @@ function DetalleProducto({ producto }) {
               <FontAwesomeIcon icon={faCartPlus} />
             </Button>
           </div>
-        </div>
-        <div className="product-descripcion">
-          <p>Descripción</p>
-          <hr />
-          <p>{producto.descripcion}</p>
-        </div>
       </Card.Body>
     </Card>
   );

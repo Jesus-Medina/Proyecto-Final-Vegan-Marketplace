@@ -1,9 +1,18 @@
 body {
-  background-color: #C7E9B0;
+  background-image: url("https://i.ibb.co/vsgGTJk/tijana-drndarski-d-Fo-OWRT97-0-unsplash.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Glacial Indifference';
 }
 
+a:hover {
+  color: lightgray !important;
+}
+
 .lista-productos {
+  max-height: 95vh;
+  overflow-y: scroll;
   justify-content: center;
   margin: 2em auto;
   display: grid;
@@ -18,6 +27,8 @@ body {
     gap: 2em;
     grid-template-columns: auto auto  ;
   }
+
+  
 }
 
 @media (min-width: 992px) {
@@ -35,6 +46,12 @@ body {
 
   .detalle-img {
     width: 40%;
+  }
+}
+
+@media (max-width: 992px) {
+  #navbar-vegano a{
+    margin: .5rem;
   }
 }
 
@@ -56,14 +73,14 @@ body {
   }
 }
 
-
 .price {
+  font-size: 1.5rem;
   text-align: center;
-  font-size: 34px;
   font-weight: 500;
   margin:0;
   display:inline;
 }
+
 .price::before {
   content:"$";
 }
@@ -72,30 +89,25 @@ body {
   justify-content: center;
   margin: 0 auto 1em;
   display: grid;
-  gap: 2em;
   grid-template-columns: auto auto;
 }
 
 .card {
   text-align: center;
   background-color: #fff;
-  border: 0.5em solid rgb(84, 84, 84);
-  border-radius: 25px;
   padding: 1em 1em 0 1em;
+
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
+
 .card img {
   max-width: 80%;
   border: 0.5em solid rgb(245,242,238);
   border-radius: 10px;
   margin: 0 auto 1em;
 }
-
-
-.product-card-info {
-  display: flex;
-  justify-content: space-around;
-}
-
 
 .card-img {
   height: 14em;
@@ -123,43 +135,9 @@ button svg {
   color: rgb(84,84,84)
 }
 
-
-
-.hero {
-  height: 90vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/fb/Broccoli_bunches.jpg"); */
-  background-image: url('./assets/imgs/hero_img.jpg');
-}
-
-.home-title {
-  background-color: #a4bc929f;
-  padding: 2rem;
-  border-radius: 1rem;
-  color: #1e2519db;
-}
-
-#navbar-vegano {
-  background-color: #B3c99c !important;
-  text-align: center;
-}
-
 #navbar-vegano a{
-  color: #3c4833db;
+  color: whitesmoke;
   margin-right: 1rem;
   text-decoration: none;
   text-align: center;
-} 
-
-.footer  {
-  background-color: #B3c99c;
-}
-
-.footer a {
-  margin-right: 1rem;
-  text-decoration: none;
-  color: #3c4833db;
 }

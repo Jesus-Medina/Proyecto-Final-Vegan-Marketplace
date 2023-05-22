@@ -43,6 +43,50 @@ const productos = [
     stock: 20,
     categoria: "categoria prod 1",
   },
+  {
+    id: 4,
+    id_vendedor: 3,
+    nombre: "hummus",
+    descripcion: "descripcion podutto",
+    url_imagen:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/beetroot-hummus-23bae4e.jpg?quality=90&resize=500,454",
+    precio: 12990,
+    stock: 20,
+    categoria: "categoria prod 1",
+  },
+  {
+    id: 4,
+    id_vendedor: 3,
+    nombre: "hummus",
+    descripcion: "descripcion podutto",
+    url_imagen:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/beetroot-hummus-23bae4e.jpg?quality=90&resize=500,454",
+    precio: 12990,
+    stock: 20,
+    categoria: "categoria prod 1",
+  },
+  {
+    id: 4,
+    id_vendedor: 3,
+    nombre: "hummus",
+    descripcion: "descripcion podutto",
+    url_imagen:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/beetroot-hummus-23bae4e.jpg?quality=90&resize=500,454",
+    precio: 12990,
+    stock: 20,
+    categoria: "categoria prod 1",
+  },
+  {
+    id: 4,
+    id_vendedor: 3,
+    nombre: "hummus",
+    descripcion: "descripcion podutto",
+    url_imagen:
+      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/beetroot-hummus-23bae4e.jpg?quality=90&resize=500,454",
+    precio: 12990,
+    stock: 20,
+    categoria: "categoria prod 1",
+  },
 ];
 
 export default productos;

@@ -8,9 +8,10 @@ import Login from "./views/Login";
 import Navigation from "./components/navbar-components/NavBar";
 import Home from "./views/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Footer from "./components/footer-components/Footer";
+import Footer from "./views/Footer";
 import AgregarProducto from "./views/AgregarProducto";
 import Register from "./views/Registro";
+import Contacto from "./views/Contacto";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/productos/:id" element={<Producto />} />
         <Route path="/login" element={<Login />}/>
         <Route path="/registro" element={<Register />}/>
+        <Route path="/contacto" element={<Contacto />} />
         <Route path="/nuevo" element={<AgregarProducto />} />
 
         <Route path="*" element={<Home />} />

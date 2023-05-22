@@ -2,6 +2,7 @@ import { Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import ProductoCard from "../components/producto-components/ProductoCard";
 import productos from "../productos";
+import "../styles/productCard.css"
 
 const ListaProductos = () => {
   //   const [productosA, setProductos] = useState([]);
