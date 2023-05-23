@@ -123,7 +123,7 @@ app.post("/favoritos", async (req, res) => {
     const usuario = await getUser(email);
     const id_usuario = usuario.id;
     const result = await agregarFavorito(id_usuario, id_producto);
-    res.status(200).send("Producto agregado a favoritos");
+    res.status(200).send(result);
   } catch (error) {
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
@@ -146,17 +146,17 @@ app.get("/favoritos", async (req, res) => {
 });
 
 // Eliminar de favoritos
-app.delete("/favoritos/:id", async (req, res) => {
+app.delete("/favoritos", async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id_producto } = req.body;
     const auth = req.header("Authorization");
     const token = auth.split("Bearer ")[1];
     jwt.verify(token, "az_AZ");
     const { email } = jwt.decode(token);
     const usuario = await getUser(email);
     const id_usuario = usuario.id;
-    const result = await eliminarFavorito(id_usuario, id);
-    res.status(200).send("Producto eliminado de favoritos");
+    const result = await eliminarFavorito(id_usuario, id_producto);
+    res.status(200).send(result);
   } catch (error) {
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }

@@ -117,8 +117,8 @@ const agregarFavorito = async (id_usuario, id_producto) => {
   if (existe)
     throw { code: 403, message: "Este producto ya está en sus favoritos" };
   const query = "INSERT INTO favoritos VALUES (DEFAULT, $1, $2)";
-  const result = await pool.query(query, values);
-  return result;
+  await pool.query(query, values);
+  return getFavoritos(id_usuario);
 };
 
 const getFavoritos = async (id_usuario) => {
@@ -134,6 +134,7 @@ const eliminarFavorito = async (id_usuario, id_producto) => {
     "DELETE FROM favoritos WHERE id_usuario = $1 AND id_producto = $2";
   const values = [id_usuario, id_producto];
   const result = await pool.query(query, values);
+  return getFavoritos(id_usuario);
 };
 
 module.exports = {
