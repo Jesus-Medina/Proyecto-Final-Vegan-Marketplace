@@ -34,6 +34,8 @@ function Login() {
       };
       const { data: token } = await axios.post(urlServer + endpoint, usuario);
       localStorage.setItem("token", token);
+      localStorage.setItem("email", user);
+
       setUsuario(usuario);
       navigate("/");
     } catch (error) {
@@ -45,8 +47,6 @@ function Login() {
         timer: 2000,
       });
     }
-
-    console.log(user, userPassword);
   };
 
   return (

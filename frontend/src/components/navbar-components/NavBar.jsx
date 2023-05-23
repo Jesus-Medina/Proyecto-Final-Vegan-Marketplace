@@ -14,6 +14,8 @@ function Navigation() {
   const logout = () => {
     setUsuario(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    navigate("/");
   };
 
   return (
@@ -46,6 +48,9 @@ function Navigation() {
               <>
                 <NavLink className="nav_link" to="/nuevo">
                   Vender
+                </NavLink>
+                <NavLink className="nav_link" to="/favoritos">
+                  Favoritos
                 </NavLink>
                 <NavLink className="nav_link" to="/perfil">
                   {usuario.email}

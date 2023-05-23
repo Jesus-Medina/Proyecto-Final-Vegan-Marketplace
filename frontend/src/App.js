@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import Context from "./Context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ListaProductos from "./views/ListaProductos";
 import Producto from "./views/Producto";
 import Login from "./views/Login";
@@ -12,10 +12,16 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./views/Footer";
 import AgregarProducto from "./views/AgregarProducto";
 import Register from "./views/Registro";
+import Favoritos from "./views/Favoritos";
 import Contacto from "./views/Contacto";
 
 function App() {
   const [usuario, setUsuario] = useState(null);
+  useEffect(() => {
+    const data = localStorage.getItem("email");
+    if (data) setUsuario({ email: data });
+  }, []);
+
   return (
     <Context.Provider value={{ usuario, setUsuario }}>
       <BrowserRouter>
@@ -24,7 +30,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/productos" element={<ListaProductos />} />
           <Route path="/productos/:id" element={<Producto />} />
-          <Route path="/favoritos/:id_usuario" element={<ListaProductos />} />
+          <Route path="/favoritos/" element={<Favoritos />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Register />} />
           <Route path="/contacto" element={<Contacto />} />
