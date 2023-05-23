@@ -24,10 +24,11 @@ function DetalleProducto({ producto }) {
     };
     try {
       const { data: favoritos } = favorito
-        ? await axios.post(urlServer + endpoint, body, {
+        ? await axios.delete(urlServer + endpoint, {
             headers: { Authorization: "Bearer " + token },
+            data: body,
           })
-        : await axios.delete(urlServer + endpoint, body, {
+        : await axios.post(urlServer + endpoint, body, {
             headers: { Authorization: "Bearer " + token },
           });
       setFavoritos(favoritos);
@@ -78,7 +79,22 @@ function DetalleProducto({ producto }) {
           </div>
           <Card.Body>
             <div className="product-detalle-info">
-              <Card.Title>{producto.nombre}</Card.Title>
+              <div className="card-detalle-titulo">
+                <Card.Title>
+                  <p>{producto.nombre}</p>
+                </Card.Title>
+                <Button
+                  variant="success"
+                  className="favoritear"
+                  onClick={favoritear}
+                >
+                  {favorito ? (
+                    <FontAwesomeIcon icon={faHeart} />
+                  ) : (
+                    <FontAwesomeIcon icon={faHeartLight} />
+                  )}
+                </Button>
+              </div>
               <p className="price">{producto.precio.toLocaleString("de")}</p>
             </div>
             <div className="product-descripcion">
@@ -93,17 +109,6 @@ function DetalleProducto({ producto }) {
                 //  onClick={handleAddToCart}
               >
                 <FontAwesomeIcon icon={faCartPlus} />
-              </Button>
-              <Button
-                variant="success"
-                className="favoritear"
-                onClick={favoritear}
-              >
-                {favorito ? (
-                  <FontAwesomeIcon icon={faHeart} />
-                ) : (
-                  <FontAwesomeIcon icon={faHeartLight} />
-                )}
               </Button>
             </div>
           </Card.Body>

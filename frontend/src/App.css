@@ -85,13 +85,7 @@ a:hover {
   content:"$";
 }
 
-.actions {
-  justify-content: center;
-  margin: 0 auto 1em;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 2em;
-}
+
 
 .card {
   text-align: center;
@@ -159,4 +153,18 @@ button svg {
 
 .product-descripcion {
   margin-top: 3em;
+}
+
+.detalle-img {
+  text-align: center;
+}
+
+.detalle {
+  text-align: left;
+}
+
+.card-detalle-titulo {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
