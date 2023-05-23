@@ -56,3 +56,10 @@ Para tests de backend insertamos un usuario de prueba
 INSERT INTO usuario ("nombre","email","password_hash") 
 VALUES ('test user', 'test@email.com', '$2a$10$L05eG03tuwc0tkq4zKslq.u9SsR1y7LV.WSvEiXW6NgWhAZ4E4a72');
 ```
+
+Para ejecutar tests
+```bash
+cd backend
+npm install
+npm test
+```
