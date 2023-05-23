@@ -112,6 +112,22 @@ app.get("/productos/:id", async (req, res) => {
   }
 });
 
+// Obtener favoritos
+app.get("/favoritos", async (req, res) => {
+  try {
+    const auth = req.header("Authorization");
+    const token = auth.split("Bearer ")[1];
+    jwt.verify(token, "az_AZ");
+    const { email } = jwt.decode(token);
+    const usuario = await getUser(email);
+    const id_usuario = usuario.id;
+    const favoritos = await getFavoritos(id_usuario);
+    res.status(200).send(favoritos);
+  } catch (error) {
+    res.status(error.code || 500).send(error.message || "Ocurrió un error");
+  }
+});
+
 // Agregar producto a favoritos
 app.post("/favoritos", async (req, res) => {
   try {
@@ -124,22 +140,6 @@ app.post("/favoritos", async (req, res) => {
     const id_usuario = usuario.id;
     const result = await agregarFavorito(id_usuario, id_producto);
     res.status(200).send(result);
-  } catch (error) {
-    res.status(error.code || 500).send(error.message || "Ocurrió un error");
-  }
-});
-
-// Obtener favoritos
-app.get("/favoritos", async (req, res) => {
-  try {
-    const auth = req.header("Authorization");
-    const token = auth.split("Bearer ")[1];
-    jwt.verify(token, "az_AZ");
-    const { email } = jwt.decode(token);
-    const usuario = await getUser(email);
-    const id_usuario = usuario.id;
-    const favoritos = await getFavoritos(id_usuario);
-    res.status(200).send(favoritos);
   } catch (error) {
     res.status(error.code || 500).send(error.message || "Ocurrió un error");
   }
