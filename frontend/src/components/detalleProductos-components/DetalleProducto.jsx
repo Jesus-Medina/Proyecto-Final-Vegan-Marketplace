@@ -44,6 +44,7 @@ function DetalleProducto({ producto }) {
   };
 
   useEffect(() => {
+    console.log(producto);
     const obtenerFavoritos = async () => {
       try {
         const urlServer = "http://localhost:4000";
@@ -96,6 +97,7 @@ function DetalleProducto({ producto }) {
                 </Button>
               </div>
               <p className="price">{producto.precio.toLocaleString("de")}</p>
+              <p style={{ marginTop: "1em" }}>Vendedor: {producto.vendedor}</p>
             </div>
             <div className="product-descripcion">
               <p>Descripción</p>
