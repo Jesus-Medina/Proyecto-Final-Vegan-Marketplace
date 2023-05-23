@@ -99,7 +99,7 @@ function DetalleProducto({ producto }) {
             </div>
             <div className="product-descripcion">
               <p>Descripción</p>
-              <hr style={{ borderColor: "black" }} />
+              <hr style={{ borderColor: "black", margin: 0 }} />
               <p>{producto.descripcion}</p>
             </div>
             <div className="actions">

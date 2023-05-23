@@ -109,6 +109,9 @@ a:hover {
   width: 100%;
   background-position: center;
 }
+.card-title {
+  font-size: xx-large;
+}
 .card-img:hover, .card-title:hover, .price:hover {
   cursor: pointer;
 }
@@ -152,7 +155,7 @@ button svg {
 }
 
 .product-descripcion {
-  margin-top: 3em;
+  margin: 3em 0;
 }
 
 .detalle-img {
@@ -166,5 +169,9 @@ button svg {
 .card-detalle-titulo {
   display:flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: self-end;
+}
+
+.product-descripcion p {
+  margin: 0.3em 0
 }
