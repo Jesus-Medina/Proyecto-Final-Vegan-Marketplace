@@ -44,7 +44,6 @@ function DetalleProducto({ producto }) {
   };
 
   useEffect(() => {
-    console.log(producto);
     const obtenerFavoritos = async () => {
       try {
         const urlServer = "http://localhost:4000";
