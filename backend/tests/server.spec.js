@@ -1,6 +1,9 @@
 const request = require("supertest");
 const server = require("../index");
 
+const test_token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZW1haWwuY29tIiwiaWF0IjoxNjg0ODU1NDY4fQ.D9nG2q-AGSPxtM2FTZYJlDYeKNFi71MvJYwYnCrj5H0";
+
 describe("Tests a rutas API REST", () => {
   it("POST /usuario con datos invalidos devuelve error", async () => {
     const usuario = {
@@ -21,8 +24,7 @@ describe("Tests a rutas API REST", () => {
     expect(body).toBeInstanceOf(Array);
   });
 
-  it("POST /productos devuelve algo", async () => {
-    const jwt = "token";
+  it("POST /productos con usuario valido devuelve status 200", async () => {
     const producto = {
       nombre: "nuevo producto",
       descripcion: "descripcion producto",
@@ -34,11 +36,23 @@ describe("Tests a rutas API REST", () => {
     };
     const response = await request(server)
       .post("/productos")
-      .set("Authorization", jwt)
+      .set("Authorization", "Bearer " + test_token)
       .send(producto);
+
     const status = response.statusCode;
-    expect(status).toBe(404);
+    expect(status).toBe(200);
   });
 
-  it("", async () => {});
+  it("GET /favoritos con token valido devuelve status 200 sin errores y un arreglo", async () => {
+    const response = await request(server)
+      .get("/favoritos")
+      .set("Authorization", "Bearer " + test_token)
+      .send();
+    const status = response.statusCode;
+    const error = response.error;
+    const body = response.body;
+    expect(error).toBe(false);
+    expect(status).toBe(200);
+    expect(body).toBeInstanceOf(Array);
+  });
 });
