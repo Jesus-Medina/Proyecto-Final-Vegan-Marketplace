@@ -48,7 +48,7 @@ function Navigation() {
                   Vender
                 </NavLink>
                 <NavLink className="nav_link" to="/perfil">
-                  Mi Perfil
+                  {usuario.email}
                 </NavLink>
                 <NavLink className="nav_link" onClick={logout} to="/">
                   Salir
