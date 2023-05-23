@@ -89,13 +89,14 @@ const nuevoProducto = async (
 };
 
 const getProductos = async () => {
-  const query = "SELECT * FROM producto";
+  const query = "SELECT * FROM producto ORDER BY id DESC";
   const { rowCount, rows: productos } = await pool.query(query);
   return productos;
 };
 
 const getProducto = async (id) => {
-  const query = "SELECT * FROM producto WHERE id = $1";
+  const query =
+    "SELECT p.*, u.nombre vendedor FROM producto p left join usuario u on p.id_vendedor = u.id WHERE p.id = $1";
   const values = [id];
   const {
     rowCount,
