@@ -28,7 +28,7 @@ CREATE TABLE producto (
     id_vendedor INT REFERENCES usuario(id),
     nombre VARCHAR(255),
     descripcion TEXT,
-    url_imagen VARCHAR(512),
+    url_imagen TEXT,
     precio INT,
     stock INT,
     categoria VARCHAR(255)
