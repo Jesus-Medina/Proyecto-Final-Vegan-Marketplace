@@ -1,7 +1,6 @@
 import { useState } from "react";
 import TitleComponent from "../components/login-register-components/TitleComponent";
 import InputComponent from "../components/login-register-components/InputComponent";
-import ButtonComponent from "../components/login-register-components/ButtonComponent";
 import LinksComponent from "../components/login-register-components/LinksComponent";
 import "../styles/loginContainer.css";
 import axios from "axios";
@@ -31,10 +30,10 @@ function Login() {
       const usuario = {
         email: user,
         password: userPassword,
-<<<<<<< HEAD
       }
       const { data: token } = await axios.post(urlServer + endpoint, usuario)
       localStorage.setItem("token", token)
+      localStorage.setItem("email", usuario.email)
       setUsuario(usuario)
       let timerInterval
       Swal.fire({
@@ -54,15 +53,6 @@ function Login() {
           navigate("/productos");
         }
       })
-=======
-      };
-      const { data: token } = await axios.post(urlServer + endpoint, usuario);
-      localStorage.setItem("token", token);
-      localStorage.setItem("email", user);
-
-      setUsuario(usuario);
-      navigate("/");
->>>>>>> 4b46014942346bfd30cc661a061669a10f7625d0
     } catch (error) {
       Swal.fire({
         position: "center",

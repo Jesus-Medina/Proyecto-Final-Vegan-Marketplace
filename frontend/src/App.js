@@ -15,6 +15,7 @@ import Register from "./views/Registro";
 import Favoritos from "./views/Favoritos";
 import Contacto from "./views/Contacto";
 import About from "./views/About";
+import Perfil from "./views/Perfil";
 
 function App() {
   const [usuario, setUsuario] = useState(null);
@@ -31,17 +32,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/productos" element={<ListaProductos />} />
           <Route path="/productos/:id" element={<Producto />} />
-<<<<<<< HEAD
           <Route path="/nosotros" element={<About />} />
-          <Route path="/favoritos/:id_usuario" element={<ListaProductos />} />
-=======
-          <Route path="/favoritos/" element={<Favoritos />} />
->>>>>>> 4b46014942346bfd30cc661a061669a10f7625d0
+          <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Register />} />
+          <Route path="/perfil" element={<Perfil />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/nuevo" element={<AgregarProducto />} />
-          {/* <Route path="/usuario/:id_usuario" element={< />} /> */}
 
           <Route path="*" element={<Home />} />
         </Routes>

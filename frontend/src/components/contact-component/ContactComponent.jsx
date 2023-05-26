@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 const ContactoComponent = () => {
     return (
 
-        <div class="contacto-container">
+        <div className="contacto-container">
             <div className="contact-card">
                 <div className="contact-form">
                     <h2 className="pt-2">Contactanos!</h2>
