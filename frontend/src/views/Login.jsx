@@ -31,11 +31,28 @@ function Login() {
       const usuario = {
         email: user,
         password: userPassword,
-      };
-      const { data: token } = await axios.post(urlServer + endpoint, usuario);
-      localStorage.setItem("token", token);
-      setUsuario(usuario);
-      navigate("/");
+      }
+      const { data: token } = await axios.post(urlServer + endpoint, usuario)
+      localStorage.setItem("token", token)
+      setUsuario(usuario)
+      let timerInterval
+      Swal.fire({
+        title: 'Inicio de sesion exitoso!',
+        html: ' ',
+        icon: 'success',
+        timer: 1500,
+        didOpen: () => {
+          Swal.showLoading()
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          navigate("/productos");
+        }
+      })
     } catch (error) {
       Swal.fire({
         position: "center",

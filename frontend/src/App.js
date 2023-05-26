@@ -13,6 +13,7 @@ import Footer from "./views/Footer";
 import AgregarProducto from "./views/AgregarProducto";
 import Register from "./views/Registro";
 import Contacto from "./views/Contacto";
+import About from "./views/About";
 
 function App() {
   const [usuario, setUsuario] = useState(null);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/productos" element={<ListaProductos />} />
           <Route path="/productos/:id" element={<Producto />} />
+          <Route path="/nosotros" element={<About />} />
           <Route path="/favoritos/:id_usuario" element={<ListaProductos />} />
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Register />} />

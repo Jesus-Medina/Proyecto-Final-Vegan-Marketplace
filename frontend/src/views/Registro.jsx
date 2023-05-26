@@ -42,7 +42,25 @@ function Register() {
     if (user.password === user.passwordRepeat) {
       try {
         await axios.post(urlServer + endpoint, user);
-        navigate("/login");
+        let timerInterval
+        Swal.fire({
+          title: 'Registro exitoso!',
+          html: ' ',
+          icon: 'success',
+          timer: 1500,
+          didOpen: () => {
+            Swal.showLoading()
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            navigate("/login");
+          }
+        })
+        
       } catch (error) {
         Swal.fire({
           position: "center",
