@@ -31,6 +31,7 @@ function Login() {
       const usuario = {
         email: user,
         password: userPassword,
+<<<<<<< HEAD
       }
       const { data: token } = await axios.post(urlServer + endpoint, usuario)
       localStorage.setItem("token", token)
@@ -53,6 +54,15 @@ function Login() {
           navigate("/productos");
         }
       })
+=======
+      };
+      const { data: token } = await axios.post(urlServer + endpoint, usuario);
+      localStorage.setItem("token", token);
+      localStorage.setItem("email", user);
+
+      setUsuario(usuario);
+      navigate("/");
+>>>>>>> 4b46014942346bfd30cc661a061669a10f7625d0
     } catch (error) {
       Swal.fire({
         position: "center",
@@ -62,8 +72,6 @@ function Login() {
         timer: 2000,
       });
     }
-
-    console.log(user, userPassword);
   };
 
   return (

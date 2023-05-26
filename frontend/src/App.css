@@ -85,12 +85,7 @@ a:hover {
   content:"$";
 }
 
-.actions {
-  justify-content: center;
-  margin: 0 auto 1em;
-  display: grid;
-  grid-template-columns: auto auto;
-}
+
 
 .card {
   text-align: center;
@@ -114,6 +109,9 @@ a:hover {
   width: 100%;
   background-position: center;
 }
+.card-title {
+  font-size: xx-large;
+}
 .card-img:hover, .card-title:hover, .price:hover {
   cursor: pointer;
 }
@@ -129,15 +127,51 @@ button svg {
   margin-left: -3px;
 }
 
-.btn-success, .btn-success:hover {
-  background-color: #A4BC92;
-  border-color: #A4BC92;
-  color: rgb(84,84,84)
-}
 
 #navbar-vegano a{
   color: whitesmoke;
   margin-right: 1rem;
   text-decoration: none;
   text-align: center;
+}
+
+.agregar {
+  background-color: #fff;
+  border-color: #fff;
+  color: #198754;
+}
+
+.favoritear {
+  background-color: #fff;
+  border-color: #fff;
+  color: rgb(171,59,62);
+}
+
+
+.favoritear:hover, .favoritear:active{
+  background-color: rgb(171,59,62) !important;
+  border-color: #fff !important;
+  color:#fff !important;
+}
+
+.product-descripcion {
+  margin: 3em 0;
+}
+
+.detalle-img {
+  text-align: center;
+}
+
+.detalle {
+  text-align: left;
+}
+
+.card-detalle-titulo {
+  display:flex;
+  justify-content: space-between;
+  align-items: self-end;
+}
+
+.product-descripcion p {
+  margin: 0.3em 0
 }

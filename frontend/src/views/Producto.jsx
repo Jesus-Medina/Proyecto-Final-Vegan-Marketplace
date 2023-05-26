@@ -2,8 +2,8 @@ import { Container, Image, Spinner } from "react-bootstrap";
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DetalleProducto from "../components/detalleProductos-components/DetalleProducto";
-import productos from "../productos";
-import "../styles/productDetails.css"
+import "../styles/productDetails.css";
+import axios from "axios";
 
 const Producto = () => {
   const { id } = useParams();
@@ -12,17 +12,21 @@ const Producto = () => {
   const [details, setDetails] = useState({});
 
   useEffect(() => {
-    const producto = productos.filter((item) => item.id == id);
-    if (producto.length > 0) {
-      setDetails(producto[0]);
-      setLoading(false);
-    }
-    // else {
-    //   navigate("/");
-    // }
-    console.log(producto)
+    const obtenerProducto = async () => {
+      try {
+        const urlServer = "http://localhost:4000";
+        const endpoint = "/productos/";
+
+        const { data: producto } = await axios.get(urlServer + endpoint + id);
+        setDetails(producto);
+        setLoading(false);
+      } catch (error) {
+        console.log({ error });
+        navigate("/");
+      }
+    };
+    obtenerProducto();
   }, [id]);
-  console.log(details)
 
   return (
     <div className="detalle-producto-container">
@@ -36,7 +40,6 @@ const Producto = () => {
         )}
       </Container>
     </div>
-
   );
 };
 

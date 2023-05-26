@@ -89,13 +89,14 @@ const nuevoProducto = async (
 };
 
 const getProductos = async () => {
-  const query = "SELECT * FROM producto";
+  const query = "SELECT * FROM producto ORDER BY id DESC";
   const { rowCount, rows: productos } = await pool.query(query);
   return productos;
 };
 
 const getProducto = async (id) => {
-  const query = "SELECT * FROM producto WHERE id = $1";
+  const query =
+    "SELECT p.*, u.nombre vendedor FROM producto p left join usuario u on p.id_vendedor = u.id WHERE p.id = $1";
   const values = [id];
   const {
     rowCount,
@@ -117,8 +118,8 @@ const agregarFavorito = async (id_usuario, id_producto) => {
   if (existe)
     throw { code: 403, message: "Este producto ya está en sus favoritos" };
   const query = "INSERT INTO favoritos VALUES (DEFAULT, $1, $2)";
-  const result = await pool.query(query, values);
-  return result;
+  await pool.query(query, values);
+  return getFavoritos(id_usuario);
 };
 
 const getFavoritos = async (id_usuario) => {
@@ -134,6 +135,7 @@ const eliminarFavorito = async (id_usuario, id_producto) => {
     "DELETE FROM favoritos WHERE id_usuario = $1 AND id_producto = $2";
   const values = [id_usuario, id_producto];
   const result = await pool.query(query, values);
+  return getFavoritos(id_usuario);
 };
 
 module.exports = {
