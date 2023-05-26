@@ -62,11 +62,14 @@ function DetalleProducto({ producto }) {
     }
 
     setLoading(false);
-  }, []);
+  }, [token]);
+
+  let funcionFavorito = esFavorito()
 
   useEffect(() => {
-    setFavorito(esFavorito());
-  }, [favoritos]);
+    
+    setFavorito(funcionFavorito);
+  }, [favoritos, funcionFavorito]);
 
   return (
     <>

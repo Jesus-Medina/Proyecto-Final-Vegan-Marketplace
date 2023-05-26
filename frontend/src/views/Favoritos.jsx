@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import ProductoCard from "../components/producto-components/ProductoCard";
 // import productos from "../productos";
 import "../styles/productCard.css";
+import "../styles/favoritosContainer.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -32,7 +33,7 @@ const Favoritos = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className="favoritos-container">
       <section className="lista-productos">
         {productos &&
           productos.map((producto) => {
